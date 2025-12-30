@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDURIX - Choose the Right Theme for Education</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #ff6b35;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ================= TOP BAR ================= */
+        .top-bar {
+            background: #000;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 14px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1031;
+        }
+
+        .top-bar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* ================= NAVBAR ================= */
+        .navbar {
+            position: fixed;
+            top: 28px;
+            /* below top bar */
+            width: 100%;
+            padding: 1rem 0;
+            background: var(--accent-blue);
+            transition: all 0.3s ease;
+            z-index: 1030;
+        }
+
+        .navbar.scrolled {
+            background: #fff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .nav-link {
+            color: #fff;
+            font-weight: 500;
+            margin: 0 0.5rem;
+        }
+
+        .navbar.scrolled .navbar-brand,
+        .navbar.scrolled .nav-link {
+            color: var(--primary-color) !important;
+        }
+
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.95), rgba(59, 130, 246, 0.85)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231e3a8a" width="1200" height="600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            /* padding: 2rem 0; */
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .btn-custom-primary {
+            background: #fbbf24;
+            color: #1e3a8a;
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom-primary:hover {
+            background: #f59e0b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(251, 191, 36, 0.4);
+        }
+
+        .btn-custom-secondary {
+            background: transparent;
+            color: #fff;
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom-secondary:hover {
+            background: #fff;
+            color: var(--primary-color);
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image img {
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Feature Cards */
+        .feature-cards {
+            margin-top: -100px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .feature-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card.blue {
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            color: #fff;
+        }
+
+        .feature-card.orange {
+            background: linear-gradient(135deg, #ff6b35, #f97316);
+            color: #fff;
+        }
+
+        .feature-card.green {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #fff;
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 30px 0px;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-blue);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer h5 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #fff;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+                margin-top: 6rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .feature-cards {
+                margin-top: 2rem;
+            }
+        }
+
+        /* topbar */
+        @media (max-width: 768px) {
+            .top-bar {
+                text-align: center;
+                padding: 0px 0;
+            }
+
+            .top-bar a {
+                display: table;
+                margin: 5px 6px;
+                float: right;
+            }
+
+        }
+
+        @media (max-width: 991px) {
+            .hide-on-mob-view {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hide-on-desktop {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 col-md-6 text-center text-md-start">
+                    <a href="mailto:info@loremipsum.com" class="float-start"><i class="fas fa-envelope"></i>
+                        info@loremipsum.com</a>
+                </div>
+                <div class="col-4 col-md-6 text-center text-md-end">
+                    <a class="hide-on-mob-view" href="tel:+919876543211"><i class="fas fa-phone"></i>
+                        +91-9876-5432-11</a>
+                    <a class="hide-on-mob-view" href="javascript:void(0)"><i class="fas fa-calendar"></i> Schedule a
+                        Meeting</a>
+                    <a href="javascript:void(0)"><i class="fab fa-facebook"></i></a>
+                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#popupModal"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="javascript:void(0);"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-graduation-cap"></i> EDURIX</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title">Choose the Right Theme for Education</h1>
+                    <p class="hero-subtitle">Transform your learning experience with our comprehensive educational
+                        platform. Best platform to learn everything you need.</p>
+                    <div class="mt-4">
+                        <button class="btn btn-custom-primary me-3">Get Started</button>
+                        <button class="btn btn-custom-secondary">Learn More</button>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-image mt-5 mt-lg-0">
+                    <img src="https://kitaboo.com/wp-content/uploads/2018/06/learn-1996846_1920.jpg" alt="Education"
+                        class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Cards -->
+    <section class="feature-cards">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card blue">
+                        <i class="fas fa-globe"></i>
+                        <h3>Online Courses</h3>
+                        <p>Learn at your own pace with our comprehensive online courses designed by industry experts.
+                        </p>
+                        <a href="#" class="text-white">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card orange">
+                        <i class="fas fa-book-open"></i>
+                        <h3>Expert Teachers</h3>
+                        <p>Get guidance from experienced educators who are passionate about your success.</p>
+                        <a href="#" class="text-white">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card green">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Certifications</h3>
+                        <p>Earn recognized certifications that boost your career and validate your skills.</p>
+                        <a href="#" class="text-white">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="about-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/University-of-Alabama-EngineeringResearchCenter-01.jpg/1200px-University-of-Alabama-EngineeringResearchCenter-01.jpg"
+                            alt="About Us" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <p class="section-subtitle">ABOUT US</p>
+                    <h2 class="section-title">A Few Words About the University</h2>
+                    <p class="mb-4">Welcome to our premier educational institution where excellence meets innovation.
+                        Our university is dedicated to providing world-class education and fostering an environment of
+                        growth and discovery.</p>
+                    <p class="mb-4">With state-of-the-art facilities and expert faculty, we ensure every student
+                        receives personalized attention and comprehensive learning experiences that prepare them for
+                        future success.</p>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="stat-box">
+                                <div class="stat-number">5000+</div>
+                                <div class="stat-label">Students</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-box">
+                                <div class="stat-number">200+</div>
+                                <div class="stat-label">Courses</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-subtitle">OUR SERVICES</p>
+                <h2 class="section-title">What We Offer</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://cdn.elearningindustry.com/wp-content/uploads/2022/01/shutterstock_739408204.jpg"
+                                alt="Service 1">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h4>Digital Learning</h4>
+                            <p>Access courses anywhere, anytime with our advanced digital learning platform.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://oxfordlearning.com/wp-content/uploads/2025/03/group-photo-scaled.jpeg"
+                                alt="Service 2">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4>Group Study</h4>
+                            <p>Collaborate with peers and engage in interactive learning sessions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://s44783.pcdn.co/in/wp-content/uploads/sites/3/2023/02/career_development.jpg.optimal.jpg"
+                                alt="Service 3">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h4>Career Support</h4>
+                            <p>Get comprehensive career guidance and placement assistance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4  mb-4">
+                    <h5><i class="fas fa-graduation-cap"></i> EDURIX</h5>
+                    <p>Empowering students with quality education and innovative learning solutions.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 col-6">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#about">About Us</a></li>
+                        <li class="mb-2"><a href="#courses">Courses</a></li>
+                        <li class="mb-2"><a href="#services">Services</a></li>
+                        <li class="mb-2"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 col-6">
+                    <h5>Programs</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Undergraduate</a></li>
+                        <li class="mb-2"><a href="#">Graduate</a></li>
+                        <li class="mb-2"><a href="#">Online Courses</a></li>
+                        <li class="mb-2"><a href="#">Certifications</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 col-6 hide-on-desktop">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> Education</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> Education</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Education</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-4 mb-4 col-6">
+                    <h5>Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +1 234 567 890</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@edurix.com</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Education St.</li>
+                    </ul>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <div class="text-center py-3">
+                <p class="mb-0">&copy; 2025 EDURIX. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .service-card, .stat-box').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                // Only remove 'scrolled' if we are on a large screen
+                if (window.innerWidth > 991) {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // Check window size on load to set initial state
+        window.addEventListener('load', function () {
+            if (window.innerWidth <= 991) {
+                document.querySelector('.navbar').classList.add('scrolled');
+            }
+        });
+    </script>
+</body>
+
+</html>
