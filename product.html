@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDURIX - Product Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #ff6b35;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .top-bar {
+            background: #000;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 14px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1031;
+        }
+        
+        .top-bar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 28px;
+            width: 100%;
+            padding: 1rem 0;
+            background: var(--accent-blue);
+            transition: all 0.3s ease;
+            z-index: 1030;
+        }
+        
+        .navbar.scrolled {
+            background: #fff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        .nav-link {
+            color: #fff;
+            font-weight: 500;
+            margin: 0 0.5rem;
+        }
+        
+        .navbar.scrolled .navbar-brand,
+        .navbar.scrolled .nav-link {
+            color: var(--primary-color) !important;
+        }
+        
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #ff6b35;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .products-section {
+            padding: 100px 0;
+        }
+        
+        .section-subtitle {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .product-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-content {
+            padding: 2rem;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        
+        .quantity-btn {
+            width: 35px;
+            height: 35px;
+            border: 1px solid #ddd;
+            background: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .quantity-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .quantity-input {
+            width: 50px;
+            height: 35px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-right: none;
+            font-weight: bold;
+        }
+        
+        .add-to-cart-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .add-to-cart-btn:hover {
+            background: #1a3275;
+        }
+        
+        .cart-summary {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .remove-item {
+            color: #ff6b35;
+            cursor: pointer;
+        }
+        
+        .cart-total {
+            font-weight: bold;
+            text-align: right;
+            padding-top: 10px;
+        }
+        
+        .close-cart {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        
+        .cart-toggle {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            cursor: pointer;
+            display: none;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+        
+        .footer {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 3rem 0 1rem;
+            margin-top: 50px;
+        }
+        
+        .footer h5 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: #fff;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary-color);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 col-md-6 text-center text-md-start">
+                    <a href="mailto:info@loremipsum.com" class="float-start"><i class="fas fa-envelope"></i>
+                        info@loremipsum.com</a>
+                </div>
+                <div class="col-4 col-md-6 text-center text-md-end">
+                    <a class="hide-on-mob-view" href="tel:+919876543211"><i class="fas fa-phone"></i>
+                        +91-9876-5432-11</a>
+                    <a class="hide-on-mob-view" href="javascript:void(0)"><i class="fas fa-calendar"></i> Schedule a
+                        Meeting</a>
+                    <a href="javascript:void(0)"><i class="fab fa-facebook"></i></a>
+                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#popupModal"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="javascript:void(0);"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-graduation-cap"></i> EDURIX</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link cart-icon" href="javascript:void(0)" onclick="toggleCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Products Section -->
+    <section class="products-section mt-4" id="products">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-subtitle">OUR PRODUCTS</p>
+                <h2 class="section-title">Featured Courses</h2>
+            </div>
+            <div class="row g-4" id="products-container">
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://cdn.elearningindustry.com/wp-content/uploads/2022/01/shutterstock_739408204.jpg" alt="Web Development Course">
+                        </div>
+                        <div class="product-content">
+                            <h4>Web Development Course</h4>
+                            <p>Learn HTML, CSS, JavaScript and modern frameworks to build responsive websites.</p>
+                            <div class="price">$199</div>
+                            <div class="quantity-control">
+                                <div class="quantity-btn" onclick="decreaseQuantity(0)">-</div>
+                                <input type="text" class="quantity-input" id="quantity-0" value="1" readonly>
+                                <div class="quantity-btn" onclick="increaseQuantity(0)">+</div>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(0, 'Web Development Course', 199)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://oxfordlearning.com/wp-content/uploads/2025/03/group-photo-scaled.jpeg" alt="Mobile App Development">
+                        </div>
+                        <div class="product-content">
+                            <h4>Mobile App Development</h4>
+                            <p>Build iOS and Android apps using React Native and Flutter frameworks.</p>
+                            <div class="price">$249</div>
+                            <div class="quantity-control">
+                                <div class="quantity-btn" onclick="decreaseQuantity(1)">-</div>
+                                <input type="text" class="quantity-input" id="quantity-1" value="1" readonly>
+                                <div class="quantity-btn" onclick="increaseQuantity(1)">+</div>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(1, 'Mobile App Development', 249)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://s44783.pcdn.co/in/wp-content/uploads/sites/3/2023/02/career_development.jpg.optimal.jpg" alt="Data Science Course">
+                        </div>
+                        <div class="product-content">
+                            <h4>Data Science Course</h4>
+                            <p>Master Python, R, machine learning and data visualization techniques.</p>
+                            <div class="price">$299</div>
+                            <div class="quantity-control">
+                                <div class="quantity-btn" onclick="decreaseQuantity(2)">-</div>
+                                <input type="text" class="quantity-input" id="quantity-2" value="1" readonly>
+                                <div class="quantity-btn" onclick="increaseQuantity(2)">+</div>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(2, 'Data Science Course', 299)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Summary -->
+    <div class="cart-summary" id="cart-summary">
+        <div class="close-cart" onclick="toggleCart()">×</div>
+        <h4>Shopping Cart</h4>
+        <div id="cart-items">
+            <!-- Cart items will be added here dynamically -->
+            <p id="empty-cart-message">Your cart is empty</p>
+        </div>
+        <div class="cart-total">
+            Total: $<span id="cart-total">0</span>
+        </div>
+    </div>
+
+    <!-- Cart Toggle Button (appears when cart has items) -->
+    <button class="cart-toggle" id="cart-toggle" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-toggle-count">0</span>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4  mb-4">
+                    <h5><i class="fas fa-graduation-cap"></i> EDURIX</h5>
+                    <p>Empowering students with quality education and innovative learning solutions.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 col-6">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#about">About Us</a></li>
+                        <li class="mb-2"><a href="#courses">Courses</a></li>
+                        <li class="mb-2"><a href="#services">Services</a></li>
+                        <li class="mb-2"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 col-6">
+                    <h5>Programs</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Undergraduate</a></li>
+                        <li class="mb-2"><a href="#">Graduate</a></li>
+                        <li class="mb-2"><a href="#">Online Courses</a></li>
+                        <li class="mb-2"><a href="#">Certifications</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 col-6">
+                    <h5>Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +1 234 567 890</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@edurix.com</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Education St.</li>
+                    </ul>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <div class="text-center py-3">
+                <p class="mb-0">&copy; 2025 EDURIX. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Cart functionality
+        let cart = [];
+        let quantities = [1, 1, 1]; // Default quantities for each product
+        
+        // Function to increase quantity
+        function increaseQuantity(index) {
+            quantities[index]++;
+            document.getElementById(`quantity-${index}`).value = quantities[index];
+        }
+        
+        // Function to decrease quantity
+        function decreaseQuantity(index) {
+            if (quantities[index] > 1) {
+                quantities[index]--;
+                document.getElementById(`quantity-${index}`).value = quantities[index];
+            }
+        }
+        
+        // Function to add item to cart
+        function addToCart(index, name, price) {
+            const quantity = parseInt(document.getElementById(`quantity-${index}`).value);
+            
+            // Check if item already exists in cart
+            const existingItemIndex = cart.findIndex(item => item.name === name);
+            
+            if (existingItemIndex !== -1) {
+                // If item exists, update quantity
+                cart[existingItemIndex].quantity += quantity;
+            } else {
+                // If new item, add to cart
+                cart.push({
+                    id: index,
+                    name: name,
+                    price: price,
+                    quantity: quantity
+                });
+            }
+            
+            // Reset quantity for this product
+            quantities[index] = 1;
+            document.getElementById(`quantity-${index}`).value = 1;
+            
+            // Update cart display
+            updateCartDisplay();
+            
+            // Show confirmation
+            alert(`${quantity} ${name}(s) added to cart!`);
+        }
+        
+        // Function to remove item from cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartDisplay();
+        }
+        
+        // Function to update cart display
+        function updateCartDisplay() {
+            const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            const cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            
+            // Update cart count in navigation
+            document.getElementById('cart-count').textContent = cartCount;
+            document.getElementById('cart-toggle-count').textContent = cartCount;
+            
+            // Update cart total
+            document.getElementById('cart-total').textContent = cartTotal.toFixed(2);
+            
+            // Update cart items list
+            const cartItemsContainer = document.getElementById('cart-items');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p id="empty-cart-message">Your cart is empty</p>';
+                document.getElementById('cart-toggle').style.display = 'none';
+            } else {
+                cartItemsContainer.innerHTML = '';
+                emptyCartMessage.style.display = 'none';
+                
+                cart.forEach((item, index) => {
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div>
+                            <div>${item.name}</div>
+                            <div>Qty: ${item.quantity} × $${item.price}</div>
+                        </div>
+                        <div>
+                            $${(item.price * item.quantity).toFixed(2)}
+                            <span class="remove-item" onclick="removeFromCart(${index})">×</span>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                });
+                
+                document.getElementById('cart-toggle').style.display = 'flex';
+            }
+        }
+        
+        // Function to toggle cart visibility
+        function toggleCart() {
+            const cartSummary = document.getElementById('cart-summary');
+            if (cartSummary.style.display === 'block') {
+                cartSummary.style.display = 'none';
+            } else {
+                cartSummary.style.display = 'block';
+            }
+        }
+        
+        // Close cart when clicking outside
+        document.addEventListener('click', function(event) {
+            const cartSummary = document.getElementById('cart-summary');
+            const cartIcon = document.querySelector('.cart-icon');
+            
+            if (!cartSummary.contains(event.target) && !cartIcon.contains(event.target)) {
+                cartSummary.style.display = 'none';
+            }
+        });
+        
+        // Initialize cart display
+        updateCartDisplay();
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+
+</html>
