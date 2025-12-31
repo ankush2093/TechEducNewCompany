@@ -17,19 +17,19 @@
             --medium-gray: #e9ecef;
             --dark-gray: #6c757d;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
             color: #333;
         }
-        
+
         .top-bar {
             background: #000;
             color: #fff;
@@ -40,13 +40,13 @@
             width: 100%;
             z-index: 1031;
         }
-        
+
         .top-bar a {
             color: #fff;
             text-decoration: none;
             margin: 0 10px;
         }
-        
+
         .navbar {
             position: fixed;
             top: 28px;
@@ -56,34 +56,34 @@
             transition: all 0.3s ease;
             z-index: 1030;
         }
-        
+
         .navbar.scrolled {
             background: #fff !important;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .navbar-brand {
             font-size: 1.8rem;
             font-weight: 700;
             color: #fff;
         }
-        
+
         .nav-link {
             color: #fff;
             font-weight: 500;
             margin: 0 0.5rem;
         }
-        
+
         .navbar.scrolled .navbar-brand,
         .navbar.scrolled .nav-link {
             color: var(--primary-color) !important;
         }
-        
+
         .cart-icon {
             position: relative;
             cursor: pointer;
         }
-        
+
         .cart-count {
             position: absolute;
             top: -10px;
@@ -99,14 +99,14 @@
             font-size: 12px;
             font-weight: bold;
         }
-        
+
         .product-details-container {
             margin-top: 100px;
             padding: 20px;
             background-color: white;
             min-height: 100vh;
         }
-        
+
         .product-image {
             border: 1px solid var(--medium-gray);
             border-radius: 8px;
@@ -116,61 +116,61 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .product-image img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
         }
-        
+
         .product-title {
             font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 10px;
         }
-        
+
         .product-rating {
             color: #ffc107;
             margin-bottom: 10px;
         }
-        
+
         .product-price {
             font-size: 1.8rem;
             font-weight: bold;
             color: var(--primary-color);
             margin: 15px 0;
         }
-        
+
         .product-old-price {
             text-decoration: line-through;
             color: var(--dark-gray);
             margin-left: 10px;
         }
-        
+
         .product-savings {
             color: var(--accent-green);
             font-weight: bold;
             margin: 5px 0;
         }
-        
+
         .product-meta {
             display: flex;
             margin: 15px 0;
             flex-wrap: wrap;
         }
-        
+
         .product-meta-item {
             margin-right: 20px;
             font-size: 0.9rem;
             color: var(--dark-gray);
         }
-        
+
         .quantity-control {
             display: flex;
             align-items: center;
             margin: 15px 0;
         }
-        
+
         .quantity-btn {
             width: 35px;
             height: 35px;
@@ -184,13 +184,13 @@
             font-size: 18px;
             transition: all 0.3s ease;
         }
-        
+
         .quantity-btn:hover {
             background: var(--primary-color);
             color: white;
             border-color: var(--primary-color);
         }
-        
+
         .quantity-input {
             width: 50px;
             height: 35px;
@@ -200,7 +200,7 @@
             border-right: none;
             font-weight: bold;
         }
-        
+
         .btn-buy-now {
             background: #ff9900;
             color: white;
@@ -213,11 +213,11 @@
             font-weight: bold;
             transition: background 0.3s ease;
         }
-        
+
         .btn-buy-now:hover {
             background: #e68a00;
         }
-        
+
         .btn-add-to-cart {
             background: #ffd814;
             color: #000;
@@ -230,11 +230,11 @@
             font-weight: bold;
             transition: background 0.3s ease;
         }
-        
+
         .btn-add-to-cart:hover {
             background: #e6c200;
         }
-        
+
         .product-details-section {
             background: white;
             border: 1px solid var(--medium-gray);
@@ -242,7 +242,7 @@
             padding: 20px;
             margin-top: 20px;
         }
-        
+
         .section-title {
             font-size: 1.2rem;
             font-weight: bold;
@@ -250,22 +250,22 @@
             padding-bottom: 10px;
             border-bottom: 1px solid var(--medium-gray);
         }
-        
+
         .product-description {
             line-height: 1.6;
         }
-        
+
         .product-features {
             list-style: none;
             padding-left: 0;
         }
-        
+
         .product-features li {
             padding: 5px 0;
             padding-left: 20px;
             position: relative;
         }
-        
+
         .product-features li:before {
             content: "✓";
             position: absolute;
@@ -273,45 +273,45 @@
             color: var(--accent-green);
             font-weight: bold;
         }
-        
+
         .review-item {
             border-bottom: 1px solid var(--medium-gray);
             padding-bottom: 15px;
             margin-bottom: 15px;
         }
-        
+
         .review-item:last-child {
             border-bottom: none;
             margin-bottom: 0;
         }
-        
+
         .review-header {
             display: flex;
             justify-content: space-between;
             margin-bottom: 5px;
         }
-        
+
         .review-rating {
             color: #ffc107;
         }
-        
+
         .review-author {
             font-weight: bold;
         }
-        
+
         .review-date {
             color: var(--dark-gray);
             font-size: 0.9rem;
         }
-        
+
         .review-content {
             margin-top: 5px;
         }
-        
+
         .related-products {
             margin-top: 30px;
         }
-        
+
         .related-product {
             text-align: center;
             padding: 10px;
@@ -319,48 +319,48 @@
             border-radius: 5px;
             margin: 0 5px;
         }
-        
+
         .related-product img {
             max-width: 100%;
             height: 150px;
             object-fit: contain;
         }
-        
+
         .related-product .price {
             font-weight: bold;
             color: var(--primary-color);
             margin: 5px 0;
         }
-        
+
         .related-product .title {
             font-size: 0.9rem;
             margin: 5px 0;
         }
-        
+
         .delivery-info {
             background: var(--light-gray);
             padding: 15px;
             border-radius: 5px;
             margin: 15px 0;
         }
-        
+
         .delivery-option {
             display: flex;
             align-items: center;
             margin: 5px 0;
         }
-        
+
         .delivery-option i {
             margin-right: 10px;
             color: var(--accent-green);
         }
-        
+
         .seller-info {
             display: flex;
             align-items: center;
             margin: 15px 0;
         }
-        
+
         .seller-logo {
             width: 40px;
             height: 40px;
@@ -373,38 +373,38 @@
             margin-right: 10px;
             font-weight: bold;
         }
-        
+
         .seller-name {
             font-weight: bold;
         }
-        
+
         .seller-rating {
             color: #ffc107;
             margin-left: 10px;
         }
-        
+
         .footer {
             background: var(--primary-color);
             color: #fff;
             padding: 3rem 0 1rem;
             margin-top: 50px;
         }
-        
+
         .footer h5 {
             font-weight: 700;
             margin-bottom: 1.5rem;
         }
-        
+
         .footer a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         .footer a:hover {
             color: #fff;
         }
-        
+
         .social-icons a {
             display: inline-block;
             width: 40px;
@@ -416,7 +416,7 @@
             margin-right: 0.5rem;
             transition: all 0.3s ease;
         }
-        
+
         .social-icons a:hover {
             background: var(--secondary-color);
         }
@@ -444,7 +444,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
@@ -454,10 +454,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="product-details.html">Product Details</a></li>
                     <li class="nav-item">
                         <a class="nav-link cart-icon" href="javascript:void(0)" onclick="toggleCart()">
                             <i class="fas fa-shopping-cart"></i>
@@ -475,30 +476,35 @@
             <!-- Product Images -->
             <div class="col-lg-6">
                 <div class="product-image">
-                    <img src="https://cdn.elearningindustry.com/wp-content/uploads/2022/01/shutterstock_739408204.jpg" alt="Web Development Course">
+                    <img src="https://cdn.elearningindustry.com/wp-content/uploads/2022/01/shutterstock_739408204.jpg"
+                        alt="Web Development Course">
                 </div>
-                
+
                 <!-- Thumbnail Images -->
                 <div class="row mt-3">
                     <div class="col-3">
-                        <img src="https://cdn.elearningindustry.com/wp-content/uploads/2022/01/shutterstock_739408204.jpg" alt="Thumbnail 1" class="img-thumbnail w-100">
+                        <img src="https://cdn.elearningindustry.com/wp-content/uploads/2022/01/shutterstock_739408204.jpg"
+                            alt="Thumbnail 1" class="img-thumbnail w-100">
                     </div>
                     <div class="col-3">
-                        <img src="https://oxfordlearning.com/wp-content/uploads/2025/03/group-photo-scaled.jpeg" alt="Thumbnail 2" class="img-thumbnail w-100">
+                        <img src="https://oxfordlearning.com/wp-content/uploads/2025/03/group-photo-scaled.jpeg"
+                            alt="Thumbnail 2" class="img-thumbnail w-100">
                     </div>
                     <div class="col-3">
-                        <img src="https://s44783.pcdn.co/in/wp-content/uploads/sites/3/2023/02/career_development.jpg.optimal.jpg" alt="Thumbnail 3" class="img-thumbnail w-100">
+                        <img src="https://s44783.pcdn.co/in/wp-content/uploads/sites/3/2023/02/career_development.jpg.optimal.jpg"
+                            alt="Thumbnail 3" class="img-thumbnail w-100">
                     </div>
                     <div class="col-3">
-                        <img src="https://cdn.elearningindustry.com/wp-content/uploads/2022/01/shutterstock_739408204.jpg" alt="Thumbnail 4" class="img-thumbnail w-100">
+                        <img src="https://cdn.elearningindustry.com/wp-content/uploads/2022/01/shutterstock_739408204.jpg"
+                            alt="Thumbnail 4" class="img-thumbnail w-100">
                     </div>
                 </div>
             </div>
-            
+
             <!-- Product Information -->
             <div class="col-lg-6">
                 <h1 class="product-title">Complete Web Development Bootcamp 2025: Beginner to Advanced</h1>
-                
+
                 <div class="product-rating">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -507,16 +513,16 @@
                     <i class="fas fa-star-half-alt"></i>
                     <span class="ms-2">4.5 (12,847 ratings)</span>
                 </div>
-                
+
                 <div class="product-price">
                     $199.99
                     <span class="product-old-price">$299.99</span>
                 </div>
-                
+
                 <div class="product-savings">
                     Save $100.00 (33%)
                 </div>
-                
+
                 <div class="product-meta">
                     <div class="product-meta-item">
                         <i class="fas fa-check-circle text-success"></i> In Stock
@@ -525,7 +531,7 @@
                         <i class="fas fa-shipping-fast"></i> FREE Delivery
                     </div>
                 </div>
-                
+
                 <div class="delivery-info">
                     <div class="delivery-option">
                         <i class="fas fa-truck"></i>
@@ -542,7 +548,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="seller-info">
                     <div class="seller-logo">E</div>
                     <div class="seller-name">EDURIX Academy</div>
@@ -554,36 +560,38 @@
                         <i class="fas fa-star-half-alt"></i>
                     </div>
                 </div>
-                
+
                 <div class="quantity-control">
                     <div class="quantity-btn" onclick="decreaseQuantity()">-</div>
                     <input type="text" class="quantity-input" id="quantity" value="1" readonly>
                     <div class="quantity-btn" onclick="increaseQuantity()">+</div>
                 </div>
-                
+
                 <button class="btn-buy-now" onclick="buyNow()">
                     <i class="fas fa-bolt"></i> Buy Now
                 </button>
-                
+
                 <button class="btn-add-to-cart" onclick="addToCart()">
                     <i class="fas fa-shopping-cart"></i> Add to Cart
                 </button>
-                
+
                 <div class="mt-3">
                     <a href="#"><i class="fas fa-heart me-2"></i>Add to Wish List</a>
                     <a href="#" class="ms-3"><i class="fas fa-share-alt me-2"></i>Share</a>
                 </div>
             </div>
         </div>
-        
+
         <!-- Product Details Section -->
         <div class="row mt-4">
             <div class="col-lg-8">
                 <div class="product-details-section">
                     <h3 class="section-title">About this item</h3>
                     <div class="product-description">
-                        <p>This comprehensive Web Development Bootcamp will take you from a complete beginner to a professional web developer. You'll learn HTML, CSS, JavaScript, React, Node.js, MongoDB, and more.</p>
-                        
+                        <p>This comprehensive Web Development Bootcamp will take you from a complete beginner to a
+                            professional web developer. You'll learn HTML, CSS, JavaScript, React, Node.js, MongoDB, and
+                            more.</p>
+
                         <ul class="product-features">
                             <li>Over 50 hours of video content</li>
                             <li>Real-world projects and assignments</li>
@@ -593,15 +601,16 @@
                             <li>Regular updates with new content</li>
                             <li>24/7 support from instructors</li>
                         </ul>
-                        
-                        <p>Whether you're looking to start a new career in tech, add to your skillset, or become a freelance developer, this course will provide you with the skills you need to succeed.</p>
+
+                        <p>Whether you're looking to start a new career in tech, add to your skillset, or become a
+                            freelance developer, this course will provide you with the skills you need to succeed.</p>
                     </div>
                 </div>
-                
+
                 <!-- Customer Reviews -->
                 <div class="product-details-section">
                     <h3 class="section-title">Customer Reviews</h3>
-                    
+
                     <div class="review-item">
                         <div class="review-header">
                             <div class="review-author">John D.</div>
@@ -615,10 +624,12 @@
                         </div>
                         <div class="review-date">Reviewed in the United States on December 15, 2024</div>
                         <div class="review-content">
-                            <p>Excellent course! The instructor explains concepts clearly and the projects are very practical. I went from knowing nothing to building my own websites in just 3 months. Highly recommend!</p>
+                            <p>Excellent course! The instructor explains concepts clearly and the projects are very
+                                practical. I went from knowing nothing to building my own websites in just 3 months.
+                                Highly recommend!</p>
                         </div>
                     </div>
-                    
+
                     <div class="review-item">
                         <div class="review-header">
                             <div class="review-author">Sarah M.</div>
@@ -632,10 +643,12 @@
                         </div>
                         <div class="review-date">Reviewed in the United States on November 28, 2024</div>
                         <div class="review-content">
-                            <p>Great value for money. The course covers everything you need to know to become a web developer. The only downside is that some sections could be more detailed, but overall very satisfied.</p>
+                            <p>Great value for money. The course covers everything you need to know to become a web
+                                developer. The only downside is that some sections could be more detailed, but overall
+                                very satisfied.</p>
                         </div>
                     </div>
-                    
+
                     <div class="review-item">
                         <div class="review-header">
                             <div class="review-author">Michael T.</div>
@@ -649,12 +662,14 @@
                         </div>
                         <div class="review-date">Reviewed in the United States on October 30, 2024</div>
                         <div class="review-content">
-                            <p>I've taken several web development courses, and this is by far the best. The curriculum is well-structured, and the instructor is very responsive to questions. Worth every penny!</p>
+                            <p>I've taken several web development courses, and this is by far the best. The curriculum
+                                is well-structured, and the instructor is very responsive to questions. Worth every
+                                penny!</p>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Sidebar -->
             <div class="col-lg-4">
                 <div class="product-details-section">
@@ -686,7 +701,7 @@
                         </tr>
                     </table>
                 </div>
-                
+
                 <div class="product-details-section">
                     <h3 class="section-title">Frequently bought together</h3>
                     <div class="d-flex align-items-center mb-3">
@@ -720,35 +735,39 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Related Products -->
         <div class="related-products">
             <h3 class="section-title">Related Products</h3>
             <div class="row">
                 <div class="col-md-3">
                     <div class="related-product">
-                        <img src="https://oxfordlearning.com/wp-content/uploads/2025/03/group-photo-scaled.jpeg" alt="Mobile App Development">
+                        <img src="https://oxfordlearning.com/wp-content/uploads/2025/03/group-photo-scaled.jpeg"
+                            alt="Mobile App Development">
                         <div class="title">Mobile App Development Course</div>
                         <div class="price">$249.99</div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="related-product">
-                        <img src="https://s44783.pcdn.co/in/wp-content/uploads/sites/3/2023/02/career_development.jpg.optimal.jpg" alt="Data Science Course">
+                        <img src="https://s44783.pcdn.co/in/wp-content/uploads/sites/3/2023/02/career_development.jpg.optimal.jpg"
+                            alt="Data Science Course">
                         <div class="title">Data Science Course</div>
                         <div class="price">$299.99</div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="related-product">
-                        <img src="https://cdn.elearningindustry.com/wp-content/uploads/2022/01/shutterstock_739408204.jpg" alt="UI/UX Design">
+                        <img src="https://cdn.elearningindustry.com/wp-content/uploads/2022/01/shutterstock_739408204.jpg"
+                            alt="UI/UX Design">
                         <div class="title">UI/UX Design Course</div>
                         <div class="price">$179.99</div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="related-product">
-                        <img src="https://oxfordlearning.com/wp-content/uploads/2025/03/group-photo-scaled.jpeg" alt="Cybersecurity">
+                        <img src="https://oxfordlearning.com/wp-content/uploads/2025/03/group-photo-scaled.jpeg"
+                            alt="Cybersecurity">
                         <div class="title">Cybersecurity Course</div>
                         <div class="price">$229.99</div>
                     </div>
@@ -758,8 +777,10 @@
     </div>
 
     <!-- Cart Summary -->
-    <div class="cart-summary" id="cart-summary" style="position: fixed; top: 100px; right: 20px; width: 300px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); padding: 20px; z-index: 1000; display: none;">
-        <div class="close-cart" onclick="toggleCart()" style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 20px;">×</div>
+    <div class="cart-summary" id="cart-summary"
+        style="position: fixed; top: 100px; right: 20px; width: 300px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); padding: 20px; z-index: 1000; display: none;">
+        <div class="close-cart" onclick="toggleCart()"
+            style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 20px;">×</div>
         <h4>Shopping Cart</h4>
         <div id="cart-items">
             <!-- Cart items will be added here dynamically -->
@@ -771,7 +792,8 @@
     </div>
 
     <!-- Cart Toggle Button (appears when cart has items) -->
-    <button class="cart-toggle" id="cart-toggle" onclick="toggleCart()" style="position: fixed; top: 120px; right: 20px; background: var(--primary-color); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; z-index: 999; cursor: pointer; display: none;">
+    <button class="cart-toggle" id="cart-toggle" onclick="toggleCart()"
+        style="position: fixed; top: 120px; right: 20px; background: var(--primary-color); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; z-index: 999; cursor: pointer; display: none;">
         <i class="fas fa-shopping-cart"></i>
         <span class="cart-count" id="cart-toggle-count">0</span>
     </button>
@@ -829,13 +851,13 @@
         // Cart functionality
         let cart = [];
         let quantity = 1;
-        
+
         // Function to increase quantity
         function increaseQuantity() {
             quantity++;
             document.getElementById('quantity').value = quantity;
         }
-        
+
         // Function to decrease quantity
         function decreaseQuantity() {
             if (quantity > 1) {
@@ -843,16 +865,16 @@
                 document.getElementById('quantity').value = quantity;
             }
         }
-        
+
         // Function to add item to cart
         function addToCart() {
             const productName = "Complete Web Development Bootcamp 2025";
             const productPrice = 199.99;
             const quantity = parseInt(document.getElementById('quantity').value);
-            
+
             // Check if item already exists in cart
             const existingItemIndex = cart.findIndex(item => item.name === productName);
-            
+
             if (existingItemIndex !== -1) {
                 // If item exists, update quantity
                 cart[existingItemIndex].quantity += quantity;
@@ -865,56 +887,56 @@
                     quantity: quantity
                 });
             }
-            
+
             // Reset quantity for this product
             quantity = 1;
             document.getElementById('quantity').value = 1;
-            
+
             // Update cart display
             updateCartDisplay();
-            
+
             // Show confirmation
             alert(`${quantity} ${productName} added to cart!`);
         }
-        
+
         // Function to buy now
         function buyNow() {
             const productName = "Complete Web Development Bootcamp 2025";
             const productPrice = 199.99;
             const quantity = parseInt(document.getElementById('quantity').value);
-            
+
             alert(`Proceeding to checkout with ${quantity} ${productName}(s) for $${(productPrice * quantity).toFixed(2)}`);
         }
-        
+
         // Function to remove item from cart
         function removeFromCart(index) {
             cart.splice(index, 1);
             updateCartDisplay();
         }
-        
+
         // Function to update cart display
         function updateCartDisplay() {
             const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
             const cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-            
+
             // Update cart count in navigation
             document.getElementById('cart-count').textContent = cartCount;
             document.getElementById('cart-toggle-count').textContent = cartCount;
-            
+
             // Update cart total
             document.getElementById('cart-total').textContent = cartTotal.toFixed(2);
-            
+
             // Update cart items list
             const cartItemsContainer = document.getElementById('cart-items');
             const emptyCartMessage = document.getElementById('empty-cart-message');
-            
+
             if (cart.length === 0) {
                 cartItemsContainer.innerHTML = '<p id="empty-cart-message">Your cart is empty</p>';
                 document.getElementById('cart-toggle').style.display = 'none';
             } else {
                 cartItemsContainer.innerHTML = '';
                 emptyCartMessage.style.display = 'none';
-                
+
                 cart.forEach((item, index) => {
                     const cartItem = document.createElement('div');
                     cartItem.className = 'cart-item';
@@ -930,11 +952,11 @@
                     `;
                     cartItemsContainer.appendChild(cartItem);
                 });
-                
+
                 document.getElementById('cart-toggle').style.display = 'flex';
             }
         }
-        
+
         // Function to toggle cart visibility
         function toggleCart() {
             const cartSummary = document.getElementById('cart-summary');
@@ -944,20 +966,20 @@
                 cartSummary.style.display = 'block';
             }
         }
-        
+
         // Close cart when clicking outside
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             const cartSummary = document.getElementById('cart-summary');
             const cartIcon = document.querySelector('.cart-icon');
-            
+
             if (!cartSummary.contains(event.target) && !cartIcon.contains(event.target)) {
                 cartSummary.style.display = 'none';
             }
         });
-        
+
         // Initialize cart display
         updateCartDisplay();
-        
+
         // Navbar scroll effect
         window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
