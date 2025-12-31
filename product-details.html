@@ -420,11 +420,23 @@
         .social-icons a:hover {
             background: var(--secondary-color);
         }
+
+            @media (max-width: 991px) {
+            .hide-on-mob-view {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hide-on-desktop {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div class="top-bar">
+     <div class="top-bar">
         <div class="container">
             <div class="row">
                 <div class="col-8 col-md-6 text-center text-md-start">
